@@ -1,3 +1,1 @@
-export function test() {
-  return "works!";
-}
+export { LokiReporter } from "./reporters/loki";

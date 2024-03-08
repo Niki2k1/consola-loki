@@ -1,4 +1,4 @@
-# packageName
+# consola-loki
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -6,7 +6,7 @@
 <!-- [![bundle][bundle-src]][bundle-href] -->
 <!-- [![Codecov][codecov-src]][codecov-href] -->
 
-This is my package description.
+A Loki Reporter for Consola
 
 ## Usage
 
@@ -14,26 +14,26 @@ Install package:
 
 ```sh
 # npm
-npm install packageName
+npm install consola-loki
 
 # yarn
-yarn add packageName
+yarn add consola-loki
 
 # pnpm
-pnpm install packageName
+pnpm install consola-loki
 
 # bun
-bun install packageName
+bun install consola-loki
 ```
 
 Import:
 
 ```js
 // ESM
-import {} from "packageName";
+import { LokiReporter } from "consola-loki";
 
 // CommonJS
-const {} = require("packageName");
+const { LokiReporter } = require("consola-loki");
 ```
 
 ## Development
@@ -44,6 +44,9 @@ const {} = require("packageName");
 - Install dependencies using `pnpm install`
 - Run interactive tests using `pnpm dev`
 
+## Special Thanks
+Hugely inspired by [winston-loki](https://github.com/JaniAnttonen/winston-loki)
+
 ## License
 
 Made with 💛
@@ -52,13 +55,13 @@ Published under [MIT License](./LICENSE).
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/packageName?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-version-href]: https://npmjs.com/package/packageName
-[npm-downloads-src]: https://img.shields.io/npm/dm/packageName?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-downloads-href]: https://npmjs.com/package/packageName
+[npm-version-src]: https://img.shields.io/npm/v/consola-loki?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-version-href]: https://npmjs.com/package/consola-loki
+[npm-downloads-src]: https://img.shields.io/npm/dm/consola-loki?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-downloads-href]: https://npmjs.com/package/consola-loki
 
-<!-- [codecov-src]: https://img.shields.io/codecov/c/gh/unjs/packageName/main?style=flat&colorA=18181B&colorB=F0DB4F
-[codecov-href]: https://codecov.io/gh/unjs/packageName
+<!-- [codecov-src]: https://img.shields.io/codecov/c/gh/unjs/consola-loki/main?style=flat&colorA=18181B&colorB=F0DB4F
+[codecov-href]: https://codecov.io/gh/unjs/consola-loki
 
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/packageName?style=flat&colorA=18181B&colorB=F0DB4F
-[bundle-href]: https://bundlephobia.com/result?p=packageName -->
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/consola-loki?style=flat&colorA=18181B&colorB=F0DB4F
+[bundle-href]: https://bundlephobia.com/result?p=consola-loki -->
