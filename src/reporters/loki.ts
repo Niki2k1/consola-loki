@@ -31,17 +31,21 @@ export class LokiReporter implements ConsolaReporter {
 
   public async flush() {
     try {
+      const headers: HeadersInit = {};
+
+      if (this.options.user && this.options.token) {
+        headers.Authorization = `Basic ${Buffer.from(`${this.options.user}:${this.options.token}`).toString("base64")}`;
+      }
+
       await $fetch("/loki/api/v1/push", {
-        baseURL: this.options.baseUrl,
+        baseURL: this.options.baseURL,
         method: "POST",
-        headers: {
-          Authorization: `Basic ${Buffer.from(`${this.options.user}:${this.options.token}`).toString("base64")}`,
-        },
+        headers,
         body: {
           streams: this.buffer.map((logStream) => ({
             stream: logStream.labels,
             values: logStream.entries.map((entry) => [
-              JSON.stringify(entry.timestamp.getTime() * 1000 * 1000),
+              JSON.stringify(entry.timestamp.getTime() * 1000 * 1000), // Loki expects nanoseconds
               entry.message,
             ]),
           })),
@@ -62,7 +66,7 @@ export class LokiReporter implements ConsolaReporter {
         if (this.buffer.length > 0) {
           this.flush();
         }
-      }, 1000);
+      }, 5000);
     }
 
     const defaultLabels = {

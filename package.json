@@ -1,8 +1,8 @@
 {
   "name": "consola-loki",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
-  "repository": "unjs/consola-loki",
+  "repository": "niki2k1/consola-loki",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",

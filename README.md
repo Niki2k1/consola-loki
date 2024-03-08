@@ -36,6 +36,22 @@ import { LokiReporter } from "consola-loki";
 const { LokiReporter } = require("consola-loki");
 ```
 
+Example:
+```ts
+const consola = createConsola({
+  reporters: [
+    new LokiReporter({
+      baseUrl: "your base url here",
+      user: "123456",
+      token: "glc_......",
+      labels: { // custom global labels
+        hostname: hostname(), // example
+      },
+    }),
+  ],
+});
+```
+
 ## Development
 
 - Clone this repository
