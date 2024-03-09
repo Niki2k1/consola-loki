@@ -1,6 +1,6 @@
 import { $fetch, FetchError } from "ofetch";
 import type { LogObject, ConsolaReporter } from "consola";
-import { LokiOptions } from "../types";
+import type { LokiOptions } from "../index";
 
 // Mapping from consola log levels to loki log levels
 const LogLevel = {
@@ -55,7 +55,11 @@ export class LokiReporter implements ConsolaReporter {
       this.buffer = [];
     } catch (error) {
       if (error instanceof FetchError) {
-        console.error(error.data);
+        if (error.data) {
+          console.error(`error pushing logs to loki: ${error.data}`);
+        } else {
+          console.error(error);
+        }
       }
     }
   }

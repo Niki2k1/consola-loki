@@ -36,7 +36,7 @@ import { LokiReporter } from "consola-loki";
 const { LokiReporter } = require("consola-loki");
 ```
 
-Example:
+## Example:
 ```ts
 const consola = createConsola({
   reporters: [
@@ -50,6 +50,39 @@ const consola = createConsola({
     }),
   ],
 });
+```
+
+## With Nuxt:
+Install `consola` and `@nuxt/kit`.
+
+```ts
+// modules/loki.ts
+import { defineNuxtModule } from '@nuxt/kit';
+import { consola } from 'consola';
+import { LokiReporter, LokiOptions } from 'consola-loki';
+
+export default defineNuxtModule<LokiOptions>({
+  meta: {
+    name: 'loki',
+  },
+  setup(options, nuxt) {
+    const loki = new LokiReporter(options);
+    consola.addReporter(loki);
+  },
+});
+```
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  // ...
+  loki: {
+    baseURL: 'your base url here',
+    user: '123456',
+    token: 'glc_......',
+  }
+  //...
+})
 ```
 
 ## Development
