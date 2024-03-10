@@ -36,15 +36,27 @@ import { LokiReporter } from "consola-loki";
 const { LokiReporter } = require("consola-loki");
 ```
 
+## Options:
+
+| **Parameter** | **Description**                                   | **Example**                           |
+| ------------- | ------------------------------------------------- | ------------------------------------- |
+| **`baseURL`** | URL for Grafana Loki                              | `"https://logs-prod-123.grafana.net"` |
+| `interval`    | The interval at which batched logs are sent in ms | `5000`                                |
+| `labels`      | custom labels, key-value pairs                    | `{ hostname: hostname() }`            |
+| `user`        | basic auth user or grafana cloud user             | `123456`                              |
+| `password`    | basic auth password or grafana cloud token        | `"glc\_......"`                       |
+
 ## Example:
+
 ```ts
 const consola = createConsola({
   reporters: [
     new LokiReporter({
-      baseUrl: "your base url here",
+      baseURL: "your base url here",
       user: "123456",
-      token: "glc_......",
-      labels: { // custom global labels
+      password: "glc_......",
+      labels: {
+        // custom global labels
         hostname: hostname(), // example
       },
     }),
@@ -53,17 +65,18 @@ const consola = createConsola({
 ```
 
 ## With Nuxt:
+
 Install `consola` and `@nuxt/kit`.
 
 ```ts
 // modules/loki.ts
-import { defineNuxtModule } from '@nuxt/kit';
-import { consola } from 'consola';
-import { LokiReporter, LokiOptions } from 'consola-loki';
+import { defineNuxtModule } from "@nuxt/kit";
+import { consola } from "consola";
+import { LokiReporter, LokiOptions } from "consola-loki";
 
 export default defineNuxtModule<LokiOptions>({
   meta: {
-    name: 'loki',
+    name: "loki",
   },
   setup(options, nuxt) {
     const loki = new LokiReporter(options);
@@ -77,12 +90,12 @@ export default defineNuxtModule<LokiOptions>({
 export default defineNuxtConfig({
   // ...
   loki: {
-    baseURL: 'your base url here',
-    user: '123456',
-    token: 'glc_......',
-  }
+    baseURL: "your base url here",
+    user: "123456",
+    password: "glc_......",
+  },
   //...
-})
+});
 ```
 
 ## Development
@@ -94,6 +107,7 @@ export default defineNuxtConfig({
 - Run interactive tests using `pnpm dev`
 
 ## Special Thanks
+
 Hugely inspired by [winston-loki](https://github.com/JaniAnttonen/winston-loki)
 
 ## License

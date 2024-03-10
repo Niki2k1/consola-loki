@@ -33,8 +33,8 @@ export class LokiReporter implements ConsolaReporter {
     try {
       const headers: HeadersInit = {};
 
-      if (this.options.user && this.options.token) {
-        headers.Authorization = `Basic ${Buffer.from(`${this.options.user}:${this.options.token}`).toString("base64")}`;
+      if (this.options.user && this.options.password) {
+        headers.Authorization = `Basic ${Buffer.from(`${this.options.user}:${this.options.password}`).toString("base64")}`;
       }
 
       await $fetch("/loki/api/v1/push", {
@@ -70,7 +70,7 @@ export class LokiReporter implements ConsolaReporter {
         if (this.buffer.length > 0) {
           this.flush();
         }
-      }, 5000);
+      }, this.options.interval ?? 5000);
     }
 
     const defaultLabels = {
