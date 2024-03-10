@@ -36,7 +36,7 @@ describe("consola-loki", () => {
     const lokiReporter = new LokiReporter({
       baseURL,
       user: "123456",
-      token: "glc_",
+      password: "glc_",
     });
 
     const consola = createConsola({
