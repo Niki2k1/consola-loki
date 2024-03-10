@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/niki2k1/consola-loki/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Better reporter options docs: example for config ([a219eac](https://github.com/niki2k1/consola-loki/commit/a219eac))
+
+### 🩹 Fixes
+
+- Options in test ([c6f1e8a](https://github.com/niki2k1/consola-loki/commit/c6f1e8a))
+
+### ❤️ Contributors
+
+- Niklas Lausch <niki@lauschig.net>
+
 ## v0.0.4
 
 [compare changes](https://github.com/niki2k1/consola-loki/compare/v0.0.2...v0.0.4)
