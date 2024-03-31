@@ -31,13 +31,13 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.12.2",
     "@vitest/coverage-v8": "^1.4.0",
     "changelogen": "^0.5.5",
     "eslint": "^8.57.0",
     "eslint-config-unjs": "^0.2.1",
     "jiti": "^1.21.0",
-    "msw": "^2.2.10",
+    "msw": "^2.2.13",
     "prettier": "^3.2.5",
     "typescript": "^5.4.3",
     "unbuild": "^2.0.0",
